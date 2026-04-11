@@ -312,7 +312,7 @@
   <div id="root"></div>
 
   <script>
-    console.log('[Corinthia] Script init v8.');
+    console.log('[Corinthia] Script init v20.');
 
     var careersInjected = false;
 
@@ -347,8 +347,14 @@
     }
 
     function getLang() {
-      // Detect Georgian characters anywhere on the rendered page since routing/attributes might not fire
-      return (document.body.textContent && document.body.textContent.match(/[\u10D0-\u10FA]/)) ? 'ka' : 'en';
+      // Clone React root, strip OUR injected section, then check for Georgian chars.
+      // This avoids the feedback loop where our own Georgian text keeps triggering ka mode.
+      var root = document.getElementById('root');
+      if (!root) return 'en';
+      var clone = root.cloneNode(true);
+      var injected = clone.querySelector('.careers-section');
+      if (injected) injected.parentNode.removeChild(injected);
+      return /[\u10D0-\u10FA]/.test(clone.textContent) ? 'ka' : 'en';
     }
 
     function getCareersHTML(isKa) {
