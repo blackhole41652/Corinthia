@@ -1,350 +1,519 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Corinthia VZ LLC | E-Commerce &amp; IT Solutions</title>
-    <meta name="description" content="End-to-end WooCommerce platform development, server infrastructure management, and CI/CD deployment automation for international B2B clients." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-Bj31N4nw.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CVeHjup-.css">
-    <style>
-      img[src*="hero-tech"] {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        object-fit: cover !important;
-        z-index: -1 !important;
-      }
-      div.absolute.inset-0.z-10.will-change-transform {
-        z-index: 0 !important;
-        opacity: 0.1 !important;
-        pointer-events: none !important;
-      }
 
-      /* ===== CAREERS SECTION — Corinthia VZ Style ===== */
-      .careers-section {
-        padding: 120px 0;
-        background: #0d1310;
-        position: relative;
-        overflow: hidden;
-      }
-      .careers-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0,70,200,0.06) 0%, transparent 70%),
-          radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0,40,120,0.04) 0%, transparent 60%);
-        pointer-events: none;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corinthia VZ LLC | E-Commerce &amp; IT Solutions</title>
+  <meta name="description"
+    content="End-to-end WooCommerce platform development, server infrastructure management, and CI/CD deployment automation for international B2B clients." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
+  <script type="module" crossorigin src="./assets/index-Bj31N4nw.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CVeHjup-.css">
+  <style>
+    img[src*="hero-tech"] {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      object-fit: cover !important;
+      z-index: -1 !important;
+    }
+
+    /* Careers section overrides */
+    div.absolute.inset-0.z-10.will-change-transform {
+      z-index: 0 !important;
+      opacity: 0.1 !important;
+      pointer-events: none !important;
+    }
+
+    /* Project Gallery Image Fit Engine */
+    [class*="project-card"] img,
+    [class*="ProjectCard"] img,
+    .project-image,
+    img[src*="portfolio-"],
+    img[src*="project-"] {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    }
+
+    /* ===== CAREERS SECTION — Corinthia VZ Style ===== */
+    .careers-section {
+      padding: 120px 0;
+      background: #0d1310;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .careers-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0, 70, 200, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(0, 40, 120, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .careers-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .careers-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4d8eff;
+      margin-bottom: 20px;
+    }
+
+    .careers-label-dot {
+      width: 6px;
+      height: 6px;
+      background: #0066ff;
+      border-radius: 50%;
+    }
+
+    .careers-heading {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(36px, 4.5vw, 58px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+    }
+
+    .careers-heading em {
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+
+    .careers-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 520px;
+      line-height: 1.75;
+      margin: 0 0 60px;
+    }
+
+    .careers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 2px;
+    }
+
+    .careers-grid-left {
+      background: rgba(26, 36, 32, 0.5);
+      padding: 48px;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .careers-grid-right {
+      background: rgba(26, 36, 32, 0.5);
+      padding: 48px;
+    }
+
+    .careers-role-tag {
+      font-family: 'Manrope', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0066ff;
+      background: rgba(0, 102, 255, 0.1);
+      border: 1px solid rgba(0, 102, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .careers-role-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .careers-role-meta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 36px;
+    }
+
+    .careers-req-label,
+    .careers-ben-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 16px;
+    }
+
+    .careers-req-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .careers-req-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.55;
+    }
+
+    .careers-req-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: #0066ff;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .careers-perks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .careers-perk-item {
+      background: rgba(13, 19, 16, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .careers-perk-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.5;
+    }
+
+    .careers-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .careers-cta-email {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .careers-cta-email a {
+      color: #4d8eff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .careers-cta-email a:hover {
+      color: #7aaeff;
+    }
+
+    .careers-apply {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0066ff;
+      color: #ffffff;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      align-self: flex-start;
+    }
+
+    .careers-apply:hover {
+      background: #0052cc;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 102, 255, 0.35);
+    }
+
+    .careers-apply svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    @media (max-width: 900px) {
       .careers-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 48px;
+        padding: 0 20px;
       }
-      .careers-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-family: 'Manrope', sans-serif;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #4d8eff;
-        margin-bottom: 20px;
-      }
-      .careers-label-dot {
-        width: 6px;
-        height: 6px;
-        background: #0066ff;
-        border-radius: 50%;
-      }
-      .careers-heading {
-        font-family: 'Manrope', sans-serif;
-        font-size: clamp(36px, 4.5vw, 58px);
-        font-weight: 800;
-        color: #ffffff;
-        line-height: 1.05;
-        letter-spacing: -0.02em;
-        margin: 0 0 16px;
-      }
-      .careers-heading em {
-        font-style: italic;
-        color: rgba(255,255,255,0.4);
-        font-family: 'Playfair Display', serif;
-        font-weight: 500;
-      }
-      .careers-sub {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 16px;
-        color: rgba(255,255,255,0.5);
-        max-width: 520px;
-        line-height: 1.75;
-        margin: 0 0 60px;
-      }
+
       .careers-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2px;
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 16px;
-        overflow: hidden;
-        margin-bottom: 2px;
+        grid-template-columns: 1fr;
       }
+
       .careers-grid-left {
-        background: rgba(26,36,32,0.5);
-        padding: 48px;
-        border-right: 1px solid rgba(255,255,255,0.06);
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 32px;
       }
+
       .careers-grid-right {
-        background: rgba(26,36,32,0.5);
-        padding: 48px;
+        padding: 32px;
       }
-      .careers-role-tag {
-        font-family: 'Manrope', sans-serif;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #0066ff;
-        background: rgba(0,102,255,0.1);
-        border: 1px solid rgba(0,102,255,0.2);
-        padding: 4px 12px;
-        border-radius: 4px;
-        display: inline-block;
-        margin-bottom: 20px;
-      }
-      .careers-role-title {
-        font-family: 'Manrope', sans-serif;
-        font-size: 28px;
-        font-weight: 800;
-        color: #ffffff;
-        margin: 0 0 6px;
-        letter-spacing: -0.01em;
-      }
-      .careers-role-meta {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 13px;
-        color: rgba(255,255,255,0.35);
-        margin-bottom: 36px;
-      }
-      .careers-req-label,
-      .careers-ben-label {
-        font-family: 'Manrope', sans-serif;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.4);
-        margin-bottom: 16px;
-      }
-      .careers-req-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 40px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .careers-req-list li {
-        display: flex;
-        align-items: baseline;
-        gap: 12px;
-        font-family: 'DM Sans', sans-serif;
-        font-size: 14px;
-        color: rgba(255,255,255,0.7);
-        line-height: 1.55;
-      }
-      .careers-req-list li::before {
-        content: '';
-        width: 5px;
-        height: 5px;
-        background: #0066ff;
-        border-radius: 50%;
-        flex-shrink: 0;
-        margin-top: 7px;
-      }
+
       .careers-perks-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 48px;
+        grid-template-columns: 1fr;
       }
-      .careers-perk-item {
-        background: rgba(13,19,16,0.8);
-        border: 1px solid rgba(255,255,255,0.07);
-        border-radius: 10px;
-        padding: 16px 18px;
-      }
-      .careers-perk-name {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 13px;
-        color: rgba(255,255,255,0.75);
-        line-height: 1.5;
-      }
-      .careers-cta {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .careers-cta-email {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 13px;
-        color: rgba(255,255,255,0.35);
-      }
-      .careers-cta-email a {
-        color: #4d8eff;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s;
-      }
-      .careers-cta-email a:hover { color: #7aaeff; }
-      .careers-apply {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: #0066ff;
-        color: #ffffff;
-        font-family: 'Manrope', sans-serif;
-        font-size: 14px;
-        font-weight: 700;
-        padding: 14px 32px;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        align-self: flex-start;
-      }
-      .careers-apply:hover {
-        background: #0052cc;
-        transform: translateY(-2px);
-        box-shadow: 0 12px 40px rgba(0,102,255,0.35);
-      }
-      .careers-apply svg {
-        width: 16px;
-        height: 16px;
-      }
-      @media (max-width: 900px) {
-        .careers-inner { padding: 0 20px; }
-        .careers-grid { grid-template-columns: 1fr; }
-        .careers-grid-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 32px; }
-        .careers-grid-right { padding: 32px; }
-        .careers-perks-grid { grid-template-columns: 1fr; }
-        .careers-section { padding: 80px 0; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
 
-    <script>
-      console.log('[Corinthia] Script init.');
+      .careers-section {
+        padding: 80px 0;
+      }
+    }
+  </style>
+</head>
 
-      var careersInjected = false;
+<body>
+  <div id="root"></div>
 
-      function injectCareers() {
-        if (careersInjected) return true;
+  <script>
+    console.log('[Corinthia] Script init v8.');
 
-        // Find testimonial images — React renders these when the section is visible
-        var imgs = document.querySelectorAll('img[src*="testimonial"]');
+    var careersInjected = false;
 
-        // Text-based fallback
-        var section = null;
-        if (imgs.length > 0) {
-          var el = imgs[0];
-          for (var i = 0; i < 15; i++) {
+    function replaceProjectImages() {
+      var imgs = document.querySelectorAll('img');
+      for (var i = 0; i < imgs.length; i++) {
+        var src = imgs[i].getAttribute('src') || '';
+        
+        if (src.indexOf('project-1') > -1) imgs[i].src = './project-1-new.png?v=18';
+        if (src.indexOf('project-3') > -1) imgs[i].src = './project-3-new.png?v=18';
+        if (src.indexOf('portfolio-1') > -1) imgs[i].src = './portfolio-1-new.png?v=18';
+        if (src.indexOf('portfolio-3') > -1) imgs[i].src = './portfolio-3-new.png?v=18';
+
+        // Replace with unique datacenter image and fix container height
+        if (src.indexOf('portfolio-4') > -1) {
+          imgs[i].src = './portfolio-4-datacenter.png?v=19';
+          imgs[i].style.cssText = 'height: 100% !important; width: 100% !important; object-fit: cover !important; object-position: center !important;';
+          
+          // Strip masonry inline heights from ALL ancestor wrappers until we hit the grid
+          var el = imgs[i].parentElement;
+          while (el && el.tagName !== 'BODY') {
+            var cn = (typeof el.className === 'string') ? el.className : '';
+            if (cn.includes('grid') || el.tagName === 'SECTION') break;
+            el.style.height = 'auto';
+            el.style.maxHeight = 'none';
+            el.style.minHeight = '0';
+            el.style.aspectRatio = '16/10';
             el = el.parentElement;
-            if (!el) break;
-            if (el.tagName === 'SECTION' || (el.parentElement && el.parentElement.id === 'root')) {
-              section = el;
-              break;
-            }
-          }
-          if (!section) section = imgs[0].closest('section') || imgs[0].parentElement;
-        }
-
-        if (!section) {
-          // Text fallback
-          var all = document.querySelectorAll('section, div');
-          for (var j = 0; j < all.length; j++) {
-            var t = all[j].innerText || '';
-            if (t.indexOf('Marcus Weber') > -1 || t.indexOf('Client Stories') > -1) {
-              section = all[j];
-              break;
-            }
           }
         }
+      }
+    }
 
-        if (!section) return false;
+    function getLang() {
+      // Detect Georgian characters anywhere on the rendered page since routing/attributes might not fire
+      return (document.body.textContent && document.body.textContent.match(/[\u10D0-\u10FA]/)) ? 'ka' : 'en';
+    }
 
-        console.log('[Corinthia] Found testimonials section, replacing...');
+    function getCareersHTML(isKa) {
+      var content = isKa ? {
+        label: 'ვაკანსია',
+        heading: 'შემოუერთდით ჩვენს <em>გუნდს</em>',
+        sub: 'ჩვენ ვქმნით ციფრული ინფრასტრუქტურის მომავალს. ჩაერთეთ ჩვენს მასშტაბურ პროექტებში საერთაშორისო B2B კლიენტებისთვის.',
+        role: 'Software დეველოპერი',
+        pos: 'აქტიური ვაკანსია',
+        schedule: 'სრული განაკვეთი &bull; დისტანციური &bull; საქართველო',
+        reqs: 'მოთხოვნები',
+        reqItems: [
+          '3+ წლიანი გამოცდილება: JavaScript / TypeScript, Python, ან Go',
+          'Cloud პლატფორმებთან მუშაობის გამოცდილება (AWS, GCP, Azure)',
+          'Docker, Kubernetes და CI/CD პროცესების ცოდნა',
+          'მიკროსერვისების არქიტექტურის ცოდნა'
+        ],
+        ben: 'ბენეფიტები',
+        benItems: [
+          'კონკურენტუნარიანი ხელფასი (GEL / USD)',
+          'მოქნილი სამუშაო გრაფიკი',
+          'სასწავლო და კონფერენციების ბიუჯეტი',
+          'ანაზღაურებადი შვებულება'
+        ],
+        ctaEmail: 'გამოგვიგზავნეთ რეზიუმე: <a href="mailto:hello@corinthia.dev">hello@corinthia.dev</a>',
+        apply: 'აპლიკაციის გაგზავნა'
+      } : {
+        label: 'We Are Hiring',
+        heading: 'Join Our <em>Team</em>',
+        sub: 'We are building the future of digital infrastructure. Work with us on demanding e-commerce and deployment projects for international B2B clients.',
+        role: 'Software Developer',
+        pos: 'Open Position',
+        schedule: 'Full-time &bull; Remote &bull; Georgia',
+        reqs: 'Requirements',
+        reqItems: [
+          '3+ years with JavaScript / TypeScript, Python, or Go',
+          'Experience with cloud platforms (AWS, GCP, Azure)',
+          'Knowledge of Docker, Kubernetes, CI/CD pipelines',
+          'Understanding of microservices architecture'
+        ],
+        ben: 'Benefits',
+        benItems: [
+          'Competitive salary (GEL / USD)',
+          'Flexible working hours',
+          'Learning & conference budget',
+          'Paid time off & holidays'
+        ],
+        ctaEmail: 'Send your CV to <a href="mailto:hello@corinthia.dev">hello@corinthia.dev</a>',
+        apply: 'Apply Now'
+      };
 
-        // Hide the testimonials (keep in DOM so React doesn't re-insert)
-        section.style.cssText = 'display:none!important;height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;';
+      return '<div class="careers-inner">'
+        + '<div class="careers-label"><span class="careers-label-dot"></span>' + content.label + '</div>'
+        + '<h2 class="careers-heading">' + content.heading + '</h2>'
+        + '<p class="careers-sub">' + content.sub + '</p>'
+        + '<div class="careers-grid">'
+        + '<div class="careers-grid-left">'
+        + '<div class="careers-role-tag">' + content.pos + '</div>'
+        + '<div class="careers-role-title">' + content.role + '</div>'
+        + '<div class="careers-role-meta">' + content.schedule + '</div>'
+        + '<div class="careers-req-label">' + content.reqs + '</div>'
+        + '<ul class="careers-req-list">'
+        + content.reqItems.map(function (item) { return '<li>' + item + '</li>'; }).join('')
+        + '</ul>'
+        + '</div>'
+        + '<div class="careers-grid-right">'
+        + '<div class="careers-ben-label">' + content.ben + '</div>'
+        + '<div class="careers-perks-grid">'
+        + content.benItems.map(function (item) { return '<div class="careers-perk-item"><div class="careers-perk-name">' + item + '</div></div>'; }).join('')
+        + '</div>'
+        + '<div class="careers-cta">'
+        + '<div class="careers-cta-email">' + content.ctaEmail + '</div>'
+        + '<a href="mailto:hello@corinthia.dev" class="careers-apply">'
+        + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>'
+        + content.apply + '</a>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '</div>';
+    }
 
-        // Build careers HTML
-        var careers = document.createElement('section');
-        careers.className = 'careers-section';
-        careers.setAttribute('data-corinthia', 'careers');
-        careers.innerHTML = '<div class="careers-inner">'
-          + '<div class="careers-label"><span class="careers-label-dot"></span>We Are Hiring</div>'
-          + '<h2 class="careers-heading">Join Our <em>Team</em></h2>'
-          + '<p class="careers-sub">We are building the future of digital infrastructure. Work with us on demanding e-commerce and deployment projects for international B2B clients.</p>'
-          + '<div class="careers-grid">'
-          + '<div class="careers-grid-left">'
-          + '<div class="careers-role-tag">Open Position</div>'
-          + '<div class="careers-role-title">Software Developer</div>'
-          + '<div class="careers-role-meta">Full-time &bull; Remote &bull; Georgia</div>'
-          + '<div class="careers-req-label">Requirements</div>'
-          + '<ul class="careers-req-list">'
-          + '<li>3+ years with JavaScript / TypeScript, Python, or Go</li>'
-          + '<li>Experience with cloud platforms (AWS, GCP, Azure)</li>'
-          + '<li>Knowledge of Docker, Kubernetes, CI/CD pipelines</li>'
-          + '<li>Understanding of microservices architecture</li>'
-          + '</ul>'
-          + '</div>'
-          + '<div class="careers-grid-right">'
-          + '<div class="careers-ben-label">Benefits</div>'
-          + '<div class="careers-perks-grid">'
-          + '<div class="careers-perk-item"><div class="careers-perk-name">Competitive salary (GEL / USD)</div></div>'
-          + '<div class="careers-perk-item"><div class="careers-perk-name">Flexible working hours</div></div>'
-          + '<div class="careers-perk-item"><div class="careers-perk-name">Learning &amp; conference budget</div></div>'
-          + '<div class="careers-perk-item"><div class="careers-perk-name">Paid time off &amp; holidays</div></div>'
-          + '</div>'
-          + '<div class="careers-cta">'
-          + '<div class="careers-cta-email">Send your CV to <a href="mailto:hello@corinthia.dev">hello@corinthia.dev</a></div>'
-          + '<a href="mailto:hello@corinthia.dev" class="careers-apply">'
-          + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>'
-          + 'Apply Now</a>'
-          + '</div>'
-          + '</div>'
-          + '</div>'
-          + '</div>';
+    var careersDOMNode = null;
+    var currentRenderedLang = '';
 
-        // Insert BEFORE the hidden testimonials (exact position replacement)
-        section.parentNode.insertBefore(careers, section);
-        careersInjected = true;
-        console.log('[Corinthia] Careers section DONE.');
+    function injectCareers() {
+      // If already injected and still in DOM, return true.
+      if (careersInjected && careersDOMNode && document.body.contains(careersDOMNode)) {
         return true;
       }
 
-      function tryInject() {
-        if (!injectCareers()) {
-          var observer = new MutationObserver(function() {
-            if (injectCareers()) observer.disconnect();
-          });
-          observer.observe(document.body, { childList: true, subtree: true });
-          setTimeout(function() { observer.disconnect(); }, 10000);
+      var isKa = getLang() === 'ka';
+
+      var imgs = document.querySelectorAll('img[src*="testimonial"]');
+      var section = null;
+      if (imgs.length > 0) {
+        var el = imgs[0];
+        for (var i = 0; i < 15; i++) {
+          el = el.parentElement;
+          if (!el) break;
+          if (el.tagName === 'SECTION' || (el.parentElement && el.parentElement.id === 'root')) {
+            section = el;
+            break;
+          }
+        }
+      }
+      if (!section) {
+        var all = document.querySelectorAll('section, div');
+        for (var j = 0; j < all.length; j++) {
+          var t = all[j].innerText || '';
+          if (t.indexOf('Marcus Weber') > -1 || t.indexOf('Client Stories') > -1 || t.indexOf('??????????????') > -1) {
+            section = all[j];
+            break;
+          }
         }
       }
 
-      // Wait for React to finish first render
-      setTimeout(tryInject, 500);
-    </script>
-  </body>
+      if (!section) return false;
+
+      section.style.cssText = 'display:none!important;height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;';
+
+      careersDOMNode = document.createElement('section');
+      careersDOMNode.className = 'careers-section';
+      careersDOMNode.innerHTML = getCareersHTML(isKa);
+      currentRenderedLang = isKa ? 'ka' : 'en';
+
+      section.parentNode.insertBefore(careersDOMNode, section);
+      careersInjected = true;
+
+      return true;
+    }
+
+    // Poll for language changes dynamically (one global interval instead of nested)
+    setInterval(function () {
+      if (careersInjected && careersDOMNode && document.body.contains(careersDOMNode)) {
+        var actualLang = getLang() === 'ka' ? 'ka' : 'en';
+        if (actualLang !== currentRenderedLang) {
+          currentRenderedLang = actualLang;
+          careersDOMNode.innerHTML = getCareersHTML(actualLang === 'ka');
+        }
+      }
+    }, 300);
+
+    function init() {
+      replaceProjectImages();
+      if (!injectCareers()) {
+        var observer = new MutationObserver(function () {
+          replaceProjectImages();
+          // Try to inject if not present
+          injectCareers();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+        setTimeout(function () { observer.disconnect(); injectCareers(); }, 10000);
+      } else {
+        // Already injected, but keep checking for images if needed
+        var obs2 = new MutationObserver(function () {
+          replaceProjectImages();
+          injectCareers();
+        });
+        obs2.observe(document.body, { childList: true, subtree: true });
+      }
+    }
+
+    // Wait for React to finish first render
+    setTimeout(init, 500);
+  </script>
+</body>
+
 </html>
